@@ -10,10 +10,16 @@ class HuluParser(object):
           input file but definitely may not be true of all files.
     """
 
+    # The divider being used to separate the regular lines from the "search
+    # word" lines.
     _word_divider = "####"
 
+    # A list of sets containing words we are looking for on each regular line.
     _search_sets = []
 
+    # The accumulated set of all non-search words in each line where all search
+    # words of a particular set were found.
+    # <sarcasm>+1 for confusing explanation</sarcasm>
     _cumulative_sets = {}
 
     def __init__(self):
@@ -71,6 +77,10 @@ class HuluParser(object):
 
 
 class StopAtDivider(Exception):
+    """
+    The exception used to break out of the file iteration, when we've reached
+    our custom EOF line.
+    """
     pass
 
 
