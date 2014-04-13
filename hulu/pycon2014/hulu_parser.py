@@ -1,4 +1,4 @@
-from collections import Counter, OrderedDict
+from collections import Counter
 from json import dumps
 
 FILE = "tv_show_groups.in"
